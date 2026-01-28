@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Private Chat</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #111b21; display: flex; justify-content: center; height: 100vh; color: #e9edef; }
+        
+        #chatWrapper { width: 100%; max-width: 600px; height: 100vh; background: #0b141a; display: flex; flex-direction: column; border-left: 1px solid #3b4a54; border-right: 1px solid #3b4a54; }
+        
+        #topBar { background: #202c33; padding: 15px; display: flex; gap: 10px; border-bottom: 1px solid #3b4a54; }
+        #topBar input { background: #111b21; border: 1px solid #3b4a54; color: white; padding: 10px; border-radius: 5px; flex: 1; outline: none; }
+        #topBar button { background: #00a884; color: white; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+        #chatBox { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; background-image: linear-gradient(rgba(11,20,26,0.95), rgba(11,20,26,0.95)), url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); }
+        
+        .msg { margin-bottom: 15px; padding: 10px 15px; border-radius: 12px; max-width: 80%; font-size: 14px; position: relative; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .msg.other { align-self: flex-start; border-bottom-left-radius: 2px; }
+        .msg.me { background: #005c4b !important; align-self: flex-end; border-bottom-right-radius: 2px; }
+        
+        .msg b { display: block; font-size: 11px; margin-bottom: 4px; filter: brightness(1.5); }
+        .msg small { font-size: 10px; opacity: 0.7; display: block; text-align: right; margin-top: 5px; }
+
+        .controls { padding: 15px; background: #202c33; display: flex; gap: 10px; }
+        #messageInput { flex: 1; background: #2a3942; border: none; color: white; padding: 12px; border-radius: 8px; outline: none; }
+        #sendBtn { background: #00a884; color: white; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div id="chatWrapper">
+        <div id="topBar">
+            <input type="text" id="usernameInput" placeholder="Name">
+            <input type="text" id="roomInput" placeholder="Room ID">
+            <button onclick="connectToRoom()">Join</button>
+        </div>
+        <div id="chatBox"></div>
+        <div class="controls">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button id="sendBtn" onclick="sendMsg()">Send</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
